@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: student-service-jpa-demo
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:postgres://localhost:5432/test-db
+    username: postgres
+    password: This@PostG#21

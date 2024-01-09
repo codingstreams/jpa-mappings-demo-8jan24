@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String branchId;
+    private String courseId;
     private String name;
     private String courseCode;
 }

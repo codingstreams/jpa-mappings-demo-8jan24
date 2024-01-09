@@ -1,13 +1,12 @@
 package com.codingstreams.jpamappingsdemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -20,4 +19,12 @@ public class Branch {
     private String branchId;
     private String branchCode;
     private String name;
+
+    @ManyToMany
+    @JoinTable(
+        name = "branch_course",
+        joinColumns = @JoinColumn(name = "fk_branch_id"),
+        inverseJoinColumns = @JoinColumn(name = "fk_course_id")
+    )
+    private List<Course> courseList;
 }

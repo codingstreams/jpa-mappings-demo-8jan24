@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -20,5 +21,8 @@ public class EnrollmentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String enrollmentId;
+    @CreationTimestamp
     private LocalDateTime dateOfEnrollment;
+    private String mode;
+    private String status;
 }

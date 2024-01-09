@@ -1,9 +1,6 @@
 package com.codingstreams.jpamappingsdemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +18,12 @@ public class Student {
     private String name;
     private String email;
     private String mobileNo;
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "fk_enrollment_id")
+    private EnrollmentDetail enrollmentDetail;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_branch_id")
+    private Branch branch;
 }
